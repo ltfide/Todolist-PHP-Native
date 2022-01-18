@@ -1,0 +1,17 @@
+{
+  "name": "lutfi/10-todolist-php-native",
+  "description": "Todolist PHP Native",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Todolist\\PHP\\Native\\": "app"
+    }
+  },
+  "authors": [
+    {
+      "name": "Lutfi Dendiansyah",
+      "email": "lutfidendians@gmail.com"
+    }
+  ],
+  "require": {}
+}
