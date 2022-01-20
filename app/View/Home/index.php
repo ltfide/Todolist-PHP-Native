@@ -62,11 +62,13 @@
                       <?php foreach ($model["user"]["data"] as $row) : ?>
                       <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded" style="background-color: #f4f6f7">
                         <input class="form-check-input me-2" type="checkbox" value=""  aria-label="..." id="cekbox" />
-                          <form class="d-flex w-100 justify-content-between align-items-center" action="/delete" method="POST">
+                          <!-- <form class="d-flex w-100 justify-content-between align-items-center" action="/delete/<?= $row["id"] ?>" method="POST"> -->
+                          <div class="d-flex w-100 justify-content-between align-items-center">
                             <div class="coret"><?= $row["content"] ?? "" ?></div>
-                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                            <button type="submit" onclick="return confirm('yes')" id="deleteBtn"><i class="fas fa-trash-alt"></i></button>
-                          </form>  
+                            <!-- <input type="hidden" name="id" value="<?= $row['id'] ?>"> -->
+                            <a href="#" data-id = "<?= $row["id"] ?>" id="deleteBtn"><i class="fas fa-trash-alt"></i></a>
+                          </div>  
+                          <!-- </form>   -->
                       </li>
                       <?php endforeach; ?>
                       <?php endif; ?>

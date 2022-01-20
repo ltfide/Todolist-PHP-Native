@@ -60,11 +60,11 @@ class TodolistController
         }
     }
 
-    public function destroy(): void
+    public function destroy($id): void
     {
       try {
           $user = new TodolistRepository(Database::getConnection());
-          $user->deleteById($_POST['id']);
+          $user->deleteById($id);
           View::redirect("/");
       } catch (\Exception $exception) {
           $exception->getMessage();

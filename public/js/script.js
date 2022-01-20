@@ -5,6 +5,7 @@ const navLink = document.querySelectorAll(".nav-link");
 const tabPane = document.querySelectorAll(".tab-content .tab-pane");
 const btn = document.querySelector(".tab-content ul li form p");
 const deleteBtn = document.querySelectorAll("i");
+const sendBtn = document.querySelectorAll("#deleteBtn");
 
 for (let i = 0; i < clickBtn.length; i++) {
   clickBtn[i].addEventListener("click", () => {
@@ -39,42 +40,24 @@ tabsNav.forEach((m, i) =>
   })
 );
 
-{
-  /* <button type="submit" onclick="return confirm('yes')" id="deleteBtn"></button> */
-}
-
-// function del() {
-//   Swal.fire({
-//     title: "Are you sure?",
-//     text: "You won't be able to revert this!",
-//     icon: "warning",
-//     showCancelButton: true,
-//     confirmButtonColor: "#3085d6",
-//     cancelButtonColor: "#d33",
-//     confirmButtonText: "Yes, delete it!",
-//   }).then((result) => {
-//     if (result.isConfirmed) {
-//       Swal.fire("Deleted!", "Your file has been deleted.", "success");
-//       return true;
-//     }
-//   });
-// }
-
-// deleteBtn.forEach((m) =>
-//   m.addEventListener("click", () => {
-//     Swal.fire({
-//       title: "Are you sure?",
-//       text: "You won't be able to revert this!",
-//       icon: "warning",
-//       showCancelButton: true,
-//       confirmButtonColor: "#3085d6",
-//       cancelButtonColor: "#d33",
-//       confirmButtonText: "Yes, delete it!",
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-//         return true;
-//       }
-//     });
-//   })
-// );
+deleteBtn.forEach((m, i) =>
+  m.addEventListener("click", () => {
+    let id = sendBtn[i].getAttribute("data-id");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        setTimeout(() => {
+          window.location = `/delete/${id}`;
+        }, 1000);
+      }
+    });
+  })
+);
